@@ -1,0 +1,21 @@
+{
+    "name": "LaMaia",
+    "version": "1.0.0",
+    "private": true,
+    "dependencies": {
+        "cordova-android": "5.2.1",
+        "cordova-ios": "4.2.0",
+        "cordova-plugin-dialogs": "^2.0.1",
+        "cordova-windows": "4.4.2"
+    },
+    "cordova": {
+        "platforms": [
+            "android",
+            "ios",
+            "windows"
+        ],
+        "plugins": {
+            "cordova-plugin-dialogs": {}
+        }
+    }
+}

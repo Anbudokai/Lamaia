@@ -1,0 +1,38 @@
+#Hmenu {
+    padding: 5px;
+    margin: 0 0 0 30%;
+    text-align: left;
+}
+
+input {
+    width: 90%;
+    padding: 12px 20px;
+    margin: 5%;
+    display: inline-block;
+    border: solid 1px #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    color: black;
+}
+
+input:hover {
+    border: 1px solid #FFD700;
+    box-sizing: border-box;
+}
+
+input[type=submit] {
+    width: 40%;
+    font-size: 20px;
+    float: left;
+    padding: 12px 20px;
+    margin: 5%;
+    border: none;
+    color: black;
+    background-color: green;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit]:hover {
+    background-color: #a3a3a3;
+}

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: https://ssl.gstatic.com 'unsafe-eval'; style-src 'self' 'unsafe-inline'; media-src *">
+        
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <meta name="format-detection" content="telephone=no">
+        <meta name="msapplication-tap-highlight" content="no">
+        <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
+        
+        <link rel="stylesheet" type="text/css" href="css/index.css">
+
+        <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+        <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>        
+
+        <!-- <script src="scripts/index.js"></script> -->
+        <script type="text/javascript">
+            document.addEventListened("deviceready", onDeviceReady, false);
+
+            function onDeviceReady() {
+                var db = window.openDatabase("Database", "1.0", "lamaia", 2000000);
+                db.transaction(populateDB, errorCB, sucessCB);
+            }
+            function populateDB(tx) {
+                tx.executeSQL('DROP TABLE IF EXISTS lamaia');
+                tx.executeSQL('CREATE TABLE lamaia(id INTEGER primary key asc, login, senha)');
+                tx.executeSQL('INSERT INTO lamaia(id, login, senha) values (1, "admin", "admin")');
+                function errorCB(err) {
+                    alert("erro:" + err.code);
+                }
+
+                function sucessCB() {
+                    alert("sucess");
+                }
+            }
+        </script>
+        <title>LaMaia</title>
+    </head>
+    <body style="background-color: #439667;">
+        <header id="Hlogin" style="top: 8%; font-size: 30px;">
+            <h2> LaMaia </h2>
+        </header>
+        <section>
+            <form name="LoginForm" style="margin: 5px; margin-top: 30%; background-color: #3cc371;">
+                <input type="text" id="edtTexto" placeholder="Usuário">
+                <input type="password" id="edtSenha" placeholder="Senha"><br/>
+
+                <input type="checkbox" name="cbManterLogado" style="width: 5%; margin-left: 5%;"> Manter conectado.
+                <input type="submit" name="btnLogar" onclick="Logar();" value="Logar">
+                 <!-- <button id="btnOK"> Clique Aqui </button> -->
+                <input type="submit" id="botao" name="btnSair" value="Sair">
+            </form>
+            <span style="margin: 10%;"> Ainda não é cadastrado ? <a href="menu.html"> Cadastre-se</a></span>
+        </section>
+        <!-- <script type="text/javascript" src="cordova.js"></script> -->
+        <!-- <script type="text/javascript" src="scripts/platformOverrides.js"></script> -->
+        <!-- <script type="text/javascript" src="scripts/index.js"></script> -->
+    </body>
+</html>
